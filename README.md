@@ -52,10 +52,10 @@ All checkpoints, logs, and Tensorboard event files are written to `~/output/<GRO
 
 ### Quick start
 ``` bash
-# 2⃣  Train the reference model
+#   Train the reference model
 bash scripts/train_llff.sh
 
-# 3⃣  Evaluate the released checkpoint
+#   Evaluate the released checkpoint
 bash scripts/eval_llff.sh
 ```
 
