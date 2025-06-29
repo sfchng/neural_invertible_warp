@@ -5,11 +5,6 @@
 
 This is an official implementation of the paper "Neural Invertible Warp for NeRF".
 
-## Code Release Schedule
-- [🛠️ &nbsp; Installation](coming soon) 
-- [💿 &nbsp; Dataset Preparation](coming soon)
-- [🏃‍♂️ &nbsp;Running Code](coming soon)
-
 
 ## 🛠️ Installation Steps
 Assuming a fresh Anaconda environment, you can install the dependencies by
