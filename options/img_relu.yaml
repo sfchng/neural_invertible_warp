@@ -1,0 +1,73 @@
+_parent_: options/base.yaml
+
+arch:                                                       # architectural options
+    tf_init: true
+    layers: [null,256,256,256,256,3]                        # hidden layers for MLP
+    skip: []                                                # skip connections
+    posenc:                                                 # positional encoding
+        L_2D: 8                                             # number of bases (3D point)
+    gaussian:
+        sigma: 0.1
+
+
+siren:                                                      # defined for siren
+    first_omega: 30
+    hidden_omega: 30
+    hidden_layers: 3
+    hidden_features: 256
+    outermost_linear: True
+
+relu:                                                      # defined for relu
+    hidden_layers: 3
+    hidden_features: 256
+    posenc:
+        enabled: False
+        L_2D: 8
+
+barf_c2f:                                                   # coarse-to-fine scheduling on positional encoding
+
+data:                                                        # data options
+    image_fname: data/lion.png                               # path to image file
+    image_size: [512,512]                                   # original image size
+    npz_id: 2
+    upsample: false
+    upsample_scale: 4
+
+loss_weight:                                                # loss weights (in log scale)
+    render: 0                                               # RGB rendering loss
+
+optim:                                                      # optimization options
+    algo: Adam                                              # Adam/LBFGS
+    lr_end:
+    momentum: 0.9                                           # active when algo is set to "SGD"
+    sched:                                                  # learning rate scheduling options
+        type:                                               # scheduler (see PyTorch doc)
+        gamma:                                              # decay rate (can be empty if lr_end were specified)
+    momentum: 0.9
+    Adam:
+        lr: 1.e-5
+        weight_decay: 0
+    LBFGS:
+        lr: 1
+        max_iter: 40
+        history: 5
+        line_search_fn: 
+
+batch_size: 1                                               # batch size (set to number of patches to consider)
+max_iter: 1000                                                 # train to maximum number of iterations
+
+visdom:                                                     # Visdom options (turned off)
+
+freq:                                                       # periodic actions during training
+    scalar: 100                                              # log losses and scalar states (every N iterations)
+    val: 100
+
+visualise:
+    spectral: False                                         # current config only supports either spectral or grad
+    grad: False
+    laplacian: False 
+
+grayscale: False
+
+train_samples: 10000
+loss_convergence: 2.e-3

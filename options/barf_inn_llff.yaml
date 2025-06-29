@@ -1,0 +1,67 @@
+_parent_: options/nerf_inn_llff.yaml
+
+barf_c2f:                                                   # coarse-to-fine scheduling on positional encoding
+
+camera:                                                     # camera options
+    noise_type: barf
+    noise_barf:                                             # synthetic perturbations on the camera poses (Blender only)
+    noise_l2g_r:
+    noise_l2g_t:
+
+optim:                                                      # optimization options
+    lr_pose: 5.e-4                                          # learning rate of camera poses
+    lr_pose_end: 1.e-8                                      # terminal learning rate of camera poses (only used with sched_pose.type=ExponentialLR)
+    lr_feature: 1.e-3
+    sched_pose:                                             # learning rate scheduling options
+        type: ExponentialLR                                 # scheduler (see PyTorch doc)
+        gamma:                                              # decay rate (can be empty if lr_pose_end were specified)
+        step_size:                                          # decay_steps
+    
+    warmup_pose:                                            # linear warmup of the pose learning rate (N iterations)
+    test_photo: true                                        # test-time photometric optimization for evaluation
+    test_iter: 100                                          # number of iterations for test-time optimization
+
+visdom:                                                     # Visdom options
+    cam_depth: 0.2                                          # size of visualized cameras
+
+
+## default configs that work well for 2d case #
+inn:
+    proj_type: fixed_positional_encoding                # identity, simple, siren, garf, fixed pe, gaussian_rff, gabor
+    proj_dims: 256
+    arch: 
+        hidden_size: [256,256,256]
+        num_layers: 6
+    siren:
+        first_omega: 5
+        hidden_omega: 5
+    gaussian:
+        sigma: 0.1
+    posenc:
+        freq: 4
+    affine: false
+    real_nvp:
+        c2f: True
+        max_pe_iter: 100000
+        d_hidden: 128
+        multires: 6
+    actfn: softplus
+    optimize:
+        enabled: True
+
+warp_latent:
+    enc_type: l2fbarf                                   # gabor, fourier, conv, simple, l2fbarf
+    optimize:
+        enabled: True
+    embed_dim: 128
+    num_layers: 2
+    hidden_size: 64
+    normalize: True
+    posenc:
+        use_identity: True
+        freq_len: 8
+        c2f: 
+    extrinsic:
+        L: 10
+debug:
+    write_angle: 

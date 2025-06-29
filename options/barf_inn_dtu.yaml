@@ -1,0 +1,47 @@
+_parent_: options/nerf_inn_dtu.yaml
+
+barf_c2f:                                                   # coarse-to-fine scheduling on positional encoding
+
+camera:                                                     # camera options
+    noise:                                                  # synthetic perturbations on the camera poses (Blender only)
+
+optim:                                                      # optimization options
+    lr_pose: 5.e-4                                          # learning rate of camera poses
+    lr_pose_end: 1.e-8                                      # terminal learning rate of camera poses (only used with sched_pose.type=ExponentialLR)
+    sched_pose:                                             # learning rate scheduling options
+        type: ExponentialLR                                 # scheduler (see PyTorch doc)
+        gamma:                                              # decay rate (can be empty if lr_pose_end were specified)
+    warmup_pose:                                            # linear warmup of the pose learning rate (N iterations)
+    test_photo: true                                        # test-time photometric optimization for evaluation
+    test_iter: 100                                          # number of iterations for test-time optimization
+
+visdom:                                                     # Visdom options
+    cam_depth: 0.2                                          # size of visualized cameras
+
+
+pose:
+    parameterization: inn                                   # inn, se3
+    init: noisy_gt                                             # identity, noisy_gt, given, colmap
+    noise: 0.15
+    n_first_fixed_poses: 0
+    optimize_relative_poses: False
+    dtu_reconstruction: False
+    colmap:
+        flow_ckpt_path: "pretrained_models/PDCNet_megadepth.pth.tar"
+
+## default configs that work well for 2d case #
+inn:
+    proj_type: fixed_positional_encoding                # identity, simple, siren, garf, fixed pe, gaussian_rff, gabor
+    proj_dims: 256
+    real_nvp:
+        c2f: True
+        max_pe_iter: 100000
+        d_hidden: 128
+        multires: 6
+        latent_dim: 128
+    actfn: softplus
+
+save:
+    init_poses:
+    pred_poses:
+

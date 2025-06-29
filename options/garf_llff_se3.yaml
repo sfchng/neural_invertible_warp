@@ -1,0 +1,8 @@
+_parent_: options/garf_llff.yaml
+
+arch:                                                       # architectural options
+    layers_warp: [null,256,256,256,256,256,256,6]           # hidden layers for MLP
+    skip_warp: [4]                                          # skip connections
+    embedding_dim: 128                                      # embedding dim
+    actfn_warp: gaussian
+    sigma_warp: 0.3

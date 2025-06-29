@@ -1,0 +1,14 @@
+python evaluate.py --model=barf_inn_dtu --yaml=barf_inn_dtu --barf_c2f=[0.1,0.5] --group=barf_dtu_inn --name=scan24 --data.scene=scan24 --loss_weight.global_alignment=4 --resume --optim.test_photo=False
+python evaluate.py --model=barf_inn_dtu --yaml=barf_inn_dtu --barf_c2f=[0.1,0.5] --group=barf_dtu_inn --name=scan37 --data.scene=scan37 --loss_weight.global_alignment=4 --resume --optim.test_photo=False
+python evaluate.py --model=barf_inn_dtu --yaml=barf_inn_dtu --barf_c2f=[0.1,0.5] --group=barf_dtu_inn --name=scan40 --data.scene=scan40 --loss_weight.global_alignment=2 --resume --optim.test_photo=False
+python evaluate.py --model=barf_inn_dtu --yaml=barf_inn_dtu --barf_c2f=[0.1,0.5] --group=barf_dtu_inn --name=scan55 --data.scene=scan55 --loss_weight.global_alignment=2 --resume --optim.test_photo=False
+python evaluate.py --model=barf_inn_dtu --yaml=barf_inn_dtu --barf_c2f=[0.1,0.5] --group=barf_dtu_inn --name=scan63 --data.scene=scan63 --loss_weight.global_alignment=3 --resume --optim.test_photo=False
+python evaluate.py --model=barf_inn_dtu --yaml=barf_inn_dtu --barf_c2f=[0.1,0.5] --group=barf_dtu_inn --name=scan65 --data.scene=scan65 --loss_weight.global_alignment=3 --resume --optim.test_photo=False
+python evaluate.py --model=barf_inn_dtu --yaml=barf_inn_dtu --barf_c2f=[0.1,0.5] --group=barf_dtu_inn --name=scan69 --data.scene=scan69 --loss_weight.global_alignment=2 --resume --optim.test_photo=False
+python evaluate.py --model=barf_inn_dtu --yaml=barf_inn_dtu --barf_c2f=[0.1,0.5] --group=barf_dtu_inn --name=scan83 --data.scene=scan83 --loss_weight.global_alignment=3 --resume --optim.test_photo=False
+python evaluate.py --model=barf_inn_dtu --yaml=barf_inn_dtu --barf_c2f=[0.1,0.5] --group=barf_dtu_inn --name=scan97 --data.scene=scan97 --loss_weight.global_alignment=3 --resume --optim.test_photo=False
+python evaluate.py --model=barf_inn_dtu --yaml=barf_inn_dtu --barf_c2f=[0.1,0.5] --group=barf_dtu_inn --name=scan105 --data.scene=scan105 --loss_weight.global_alignment=2 --resume --optim.test_photo=False
+python evaluate.py --model=barf_inn_dtu --yaml=barf_inn_dtu --barf_c2f=[0.1,0.5] --group=barf_dtu_inn --name=scan106 --data.scene=scan106 --loss_weight.global_alignment=3 --resume --optim.test_photo=False
+python evaluate.py --model=barf_inn_dtu --yaml=barf_inn_dtu --barf_c2f=[0.1,0.5] --group=barf_dtu_inn --name=scan110 --data.scene=scan110 --loss_weight.global_alignment=3 --resume --optim.test_photo=False
+python evaluate.py --model=barf_inn_dtu --yaml=barf_inn_dtu --barf_c2f=[0.1,0.5] --group=barf_dtu_inn --name=scan114 --data.scene=scan114 --loss_weight.global_alignment=2 --resume --optim.test_photo=False
+python evaluate.py --model=barf_inn_dtu --yaml=barf_inn_dtu --barf_c2f=[0.1,0.5] --group=barf_dtu_inn --name=scan118 --data.scene=scan118 --loss_weight.global_alignment=3 --resume --optim.test_photo=False

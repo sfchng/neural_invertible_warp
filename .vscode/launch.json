@@ -1,0 +1,56 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python Debugger: Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "train_barf_inn_dtu",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "args": ["--group=barf_dtu",
+                    "--name=tmp2",
+                    "--model=barf_dtu_inn",
+                    "--yaml=barf_dtu",
+                    "--barf_c2f=[0.1,0.5]",
+                    "--pose.init=noisy_gt",
+                    "--optim.lr_pose=1.e-4",
+                    "--optim.lr_pose_end=1.e-8",
+                    "--optim.lr=5.e-4",
+                    "--optim.lr_end=1.e-4",
+                    "--nerf.rand_rays=1024",
+                    "--loss_weight.global_alignment=3",
+                    "--freq.vis=2000",
+                    "--pose.dtu_reconstruction=True",
+                    "--pose.parameterization=inn",
+                    "--visdom=!"]
+        },
+        {
+            "name": "barf_inn_rebuttal",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "args": ["--group=debug",
+                    "--name=debug_test",
+                    "--model=barf_inn_nvp",
+                    "--yaml=barf_blender_inn",
+                    "--barf_c2f=[0.1,0.5]",
+                    "--data.scene=lego",
+                    "--visdom=!",
+                    "--loss_weight.global_alignment=2",
+                    "--camera.noise_type=l2g",
+                    "--camera.noise_l2g_r=0.07",
+                    "--camera.noise_l2g_t=0.5"]
+        },
+    ]
+}
