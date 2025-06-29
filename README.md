@@ -50,3 +50,26 @@ mv nerf_llff_data data/llff
 
 
 The **data** directory should contain the subdirectories **llff** and **dtu**. If you have downloaded the datasets, you can create soft links to them within the **data** directory.
+
+## ⏳ Training and Evaluation
+
+By default, models and TensorBoard event files are saved to `~/output/<GROUP>/<NAME>`. This can be modified using the `--output_root` flag.
+
+| Dataset   | Training script  | Eval script     | Notes                                   |
+| --------- | ---------------- | --------------- | -------------------------               |
+| LLFF      | `train_llff.sh`  | `eval_llff.sh`  | Matches Table 1 in supplementary paper  |
+| DTU       | `train_dtu.sh`   | `eval_dtu.sh`   | Matches Table 2 in supplementary paper  |
+
+## 👩‍💻 Citation
+This code is for non-commercial use.
+If you find our work useful in your research please cite our paper:
+```
+@inproceedings{chng2024invertible,
+  title={Invertible neural warp for nerf},
+  author={Chng, Shin-Fang and Garg, Ravi and Saratchandran, Hemanth and Lucey, Simon},
+  booktitle={European Conference on Computer Vision},
+  pages={405--421},
+  year={2024},
+  organization={Springer}
+}
+```
