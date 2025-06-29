@@ -48,7 +48,17 @@ The **data** directory should contain the subdirectories **llff** and **dtu**. I
 
 ## ⏳ Training and Evaluation
 
-By default, models and TensorBoard event files are saved to `~/output/<GROUP>/<NAME>`. This can be modified using the `--output_root` flag.
+All checkpoints, logs, and Tensorboard event files are written to `~/output/<GROUP>/<NAME>` by default. Override this with `--output_root=/your_path`.
+
+### Quick start
+``` bash
+# 2⃣  Train the reference model
+bash scripts/train_llff.sh
+
+# 3⃣  Evaluate the released checkpoint
+bash scripts/eval_llff.sh
+```
+
 
 | Dataset   | Training script  | Eval script     | Notes                                   |
 | --------- | ---------------- | --------------- | -------------------------               |
